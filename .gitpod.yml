@@ -1,0 +1,18 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Start server
+    command: |
+      docker-compose up -d
+      gp sync-done containers
+  - name: Change ownership of themes and plugins directory
+    command: |
+      gp sync-await containers # Wait for the container task
+      echo "MC Server sucessfully started, you can login on localhost:25565 IP"
+      
+ports:
+  - name: MC server
+    port: 25565
+    onOpen: ignore
+    visibility: public
