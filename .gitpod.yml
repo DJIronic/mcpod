@@ -1,0 +1,13 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: MCPOD test
+    init: sudo apt-get update
+    command: echo "nevim neco test"
+      
+ports:
+  - name: MC server
+    port: 25565
+    onOpen: notify
+    visibility: public
